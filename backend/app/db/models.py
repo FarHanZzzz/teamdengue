@@ -54,6 +54,69 @@ class Prediction(Base):
     district: Mapped["District"] = relationship(back_populates="predictions")
 
 
+class Ward(Base):
+    """A sub-district area (city ward) — the unit of community response."""
+    __tablename__ = "wards"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    district_id: Mapped[int] = mapped_column(ForeignKey("districts.id"), index=True)
+    name: Mapped[str] = mapped_column(String(80), index=True)       # "Ward 30"
+    area_name: Mapped[str] = mapped_column(String(120))             # "Sonadanga"
+    lat: Mapped[float] = mapped_column(Float)
+    lon: Mapped[float] = mapped_column(Float)
+    population: Mapped[int] = mapped_column(Integer)
+    risk_level: Mapped[str] = mapped_column(String(12), index=True)
+    risk_score: Mapped[float] = mapped_column(Float)
+    est_affected: Mapped[int] = mapped_column(Integer)
+    breeding_sites: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class CommunityWorker(Base):
+    """A resident who joined a ward community as a potential responder."""
+    __tablename__ = "community_workers"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    ward_id: Mapped[int] = mapped_column(ForeignKey("wards.id"), index=True)
+    name: Mapped[str] = mapped_column(String(120))
+    phone: Mapped[str] = mapped_column(String(24), default="")
+    role: Mapped[str] = mapped_column(String(24), default="volunteer")  # volunteer / commissioner
+    joined_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
+
+
+class Dispatch(Base):
+    """A field task an admin sends to a ward community (location + image)."""
+    __tablename__ = "dispatches"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    ward_id: Mapped[int] = mapped_column(ForeignKey("wards.id"), index=True)
+    title: Mapped[str] = mapped_column(String(140))
+    message: Mapped[str] = mapped_column(Text, default="")
+    target_lat: Mapped[float] = mapped_column(Float)
+    target_lon: Mapped[float] = mapped_column(Float)
+    location_label: Mapped[str] = mapped_column(String(200), default="")
+    image_url: Mapped[str] = mapped_column(String(300), default="")
+    priority: Mapped[str] = mapped_column(String(12), default="High")
+    status: Mapped[str] = mapped_column(String(16), default="pending", index=True)  # pending/acknowledged/completed
+    created_by: Mapped[str] = mapped_column(String(120), default="Super Admin")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow)
+    acknowledged_by: Mapped[str] = mapped_column(String(120), default="")
+    completed_by: Mapped[str] = mapped_column(String(120), default="")
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+
+
+class ChatMessage(Base):
+    """A message/announcement in a ward community feed."""
+    __tablename__ = "chat_messages"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    ward_id: Mapped[int] = mapped_column(ForeignKey("wards.id"), index=True)
+    author_name: Mapped[str] = mapped_column(String(120))
+    role: Mapped[str] = mapped_column(String(24), default="resident")
+    text: Mapped[str] = mapped_column(Text)
+    kind: Mapped[str] = mapped_column(String(16), default="message")  # message / announcement
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow, index=True)
+
+
 class Hospital(Base):
     __tablename__ = "hospitals"
 

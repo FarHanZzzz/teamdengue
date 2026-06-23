@@ -27,6 +27,26 @@ export const endpoints = {
   agentAsk: (question) => api.post("/agent/ask", { question }).then((r) => r.data),
   agentCitizen: (district, symptoms, language = "en") =>
     api.post("/agent/citizen", { district, symptoms, language }).then((r) => r.data),
+
+  // Community response
+  wards: (districtId) =>
+    api.get("/wards", { params: districtId ? { district_id: districtId } : {} }).then((r) => r.data),
+  ward: (id) => api.get(`/wards/${id}`).then((r) => r.data),
+  communityJoin: (payload) => api.post("/community/join", payload).then((r) => r.data),
+  communityWorkers: (wardId) =>
+    api.get("/community/workers", { params: { ward_id: wardId } }).then((r) => r.data),
+  dispatchCreate: (payload) => api.post("/dispatch", payload).then((r) => r.data),
+  dispatchList: (wardId, status) =>
+    api.get("/dispatch", { params: { ...(wardId ? { ward_id: wardId } : {}), ...(status ? { status } : {}) } }).then((r) => r.data),
+  dispatchUpdate: (id, status, actor) =>
+    api.patch(`/dispatch/${id}`, { status, actor }).then((r) => r.data),
+  chatList: (wardId) => api.get("/chat", { params: { ward_id: wardId } }).then((r) => r.data),
+  chatPost: (payload) => api.post("/chat", payload).then((r) => r.data),
+  communityUpload: (file) => {
+    const form = new FormData();
+    form.append("file", file);
+    return api.post("/community/upload", form, { headers: { "Content-Type": "multipart/form-data" } }).then((r) => r.data);
+  },
   districtForecast: (id) => api.get(`/forecasts/${id}`).then((r) => r.data),
   history: (id) => api.get(`/history/${id}`).then((r) => r.data),
   citizenRisk: (name) =>

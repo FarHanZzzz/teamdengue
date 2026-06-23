@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { endpoints } from "../lib/api";
 import { useAuth } from "../context/AuthContext";
+import { useAgent } from "../context/AgentContext";
 import RiskBadge from "../components/RiskBadge";
 import Spinner from "../components/Spinner";
 import { RISK_HEX } from "../lib/risk";
@@ -114,7 +115,7 @@ function ActionCard({ a, rank, onDispatch, isAdmin, busy }) {
 
 export default function Agent() {
   const { isAdmin } = useAuth();
-  const [plan, setPlan] = useState(null);
+  const { plan, loading, loadedAt, refresh, traceSeen } = useAgent();
   const [revealed, setRevealed] = useState(0);
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState("");
@@ -123,26 +124,31 @@ export default function Agent() {
   const [asking, setAsking] = useState(false);
   const revealTimer = useRef();
 
-  const run = () => {
-    setPlan(null);
-    setRevealed(0);
-    endpoints.agentPlan().then((p) => {
-      setPlan(p);
-      // animate the reasoning trace
-      let i = 0;
-      clearInterval(revealTimer.current);
-      revealTimer.current = setInterval(() => {
-        i += 1;
-        setRevealed(i);
-        if (i >= p.trace.length) clearInterval(revealTimer.current);
-      }, 450);
-    });
-  };
-
+  // Animate the reasoning trace only the first time it's shown this session.
   useEffect(() => {
-    run();
+    clearInterval(revealTimer.current);
+    if (!plan) {
+      setRevealed(0);
+      return;
+    }
+    if (traceSeen.current) {
+      setRevealed(plan.trace.length);
+      return;
+    }
+    let i = 0;
+    setRevealed(0);
+    revealTimer.current = setInterval(() => {
+      i += 1;
+      setRevealed(i);
+      if (i >= plan.trace.length) {
+        clearInterval(revealTimer.current);
+        traceSeen.current = true;
+      }
+    }, 450);
     return () => clearInterval(revealTimer.current);
-  }, []);
+  }, [plan, traceSeen]);
+
+  const run = () => refresh();
 
   const dispatch = async (ids) => {
     setBusy(true);
@@ -185,7 +191,16 @@ export default function Agent() {
             Doesn't just warn — it reasons over the forecast, locates hospital capacity, and drafts a ready-to-dispatch response plan.
           </p>
         </div>
-        <button onClick={run} className="btn-outline">↻ Re-run agent</button>
+        <div className="flex flex-col items-end gap-1">
+          <button onClick={run} disabled={loading} className="btn-outline">
+            {loading ? "Running…" : "↻ Re-run agent"}
+          </button>
+          {loadedAt && !loading && (
+            <span className="text-[11px] text-slate-400">
+              Updated {new Date(loadedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            </span>
+          )}
+        </div>
       </div>
 
       {!plan ? (

@@ -9,9 +9,10 @@ import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
-from app.api import admin, agent, alerts, auth, public, reports
-from app.core.config import settings
+from app.api import admin, agent, alerts, auth, community, public, reports
+from app.core.config import DATA_DIR, settings
 from app.db.database import Base, engine
 
 logging.basicConfig(level=logging.INFO)
@@ -56,4 +57,9 @@ app.include_router(auth.router, prefix=prefix, tags=["auth"])
 app.include_router(alerts.router, prefix=prefix, tags=["alerts"])
 app.include_router(admin.router, prefix=prefix, tags=["admin"])
 app.include_router(agent.router, prefix=prefix, tags=["agent"])
+app.include_router(community.router, prefix=prefix, tags=["community"])
 app.include_router(reports.router, prefix=prefix, tags=["reports"])
+
+_uploads = DATA_DIR / "uploads"
+_uploads.mkdir(parents=True, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=str(_uploads)), name="uploads")

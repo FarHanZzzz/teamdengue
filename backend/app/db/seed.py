@@ -8,13 +8,23 @@ from __future__ import annotations
 
 import json
 
+import numpy as np
 import pandas as pd
 
-from app.core.config import MODELS_DIR, RAW_DIR
+from app.core.config import MODELS_DIR, RAW_DIR, settings
 from app.db.database import Base, SessionLocal, engine
 from app.db import models
+from app.ml.features import classify
 from app.ml.forecast import generate_forecast
 from app.services.alerts import dispatch_for_forecast
+
+AREA_NAMES = [
+    "Sonadanga", "Khalishpur", "Boyra", "Daulatpur", "Tootpara", "Nirala",
+    "Gollamari", "Shibbari", "Rupsha", "Mohammadpur", "Mirpur", "Uttara",
+    "Dhanmondi", "Banani", "Jatrabari", "Mohakhali", "Tejgaon", "Gulshan",
+    "Khilgaon", "Pahartali", "Kotwali", "Halishahar", "Agrabad", "Chawkbazar",
+    "Bakalia", "Panchlaish", "Patenga", "Zindabazar", "Ambarkhana", "Bandar",
+]
 
 
 def reset_schema() -> None:
@@ -75,6 +85,43 @@ def seed_predictions(db, forecast: dict) -> None:
     db.commit()
 
 
+def seed_wards(db) -> None:
+    """Generate city wards with sub-district risk + affected estimates."""
+    rng = np.random.default_rng(11)
+    t = settings
+    # week-1 risk per district
+    risk_by_district = {
+        p.district_id: p.risk_score
+        for p in db.query(models.Prediction).filter(models.Prediction.forecast_week == 1).all()
+    }
+    wid = 1
+    name_idx = 0
+    for d in db.query(models.District).all():
+        n_wards = 8 if d.is_metro else 4
+        base = risk_by_district.get(d.id, 0.15)
+        for w in range(n_wards):
+            # some wards are hotter than the district average
+            factor = float(rng.uniform(0.55, 1.45))
+            score = float(np.clip(base * factor, 0.02, 0.99))
+            level = classify(score, t.threshold_medium, t.threshold_high, t.threshold_critical)
+            pop = int(d.population / n_wards * float(rng.uniform(0.7, 1.3)))
+            affected = int(pop * (0.005 + score * 0.045))
+            db.add(models.Ward(
+                id=wid, district_id=d.id,
+                name=f"Ward {w + 1}",
+                area_name=AREA_NAMES[name_idx % len(AREA_NAMES)],
+                lat=round(d.lat + float(rng.normal(0, 0.03)), 5),
+                lon=round(d.lon + float(rng.normal(0, 0.03)), 5),
+                population=pop, risk_level=level, risk_score=round(score, 3),
+                est_affected=affected,
+                breeding_sites=int(score * float(rng.uniform(3, 9))),
+            ))
+            wid += 1
+            name_idx += 1
+    db.commit()
+    print(f"  {wid - 1} wards created.")
+
+
 def seed_users_and_recipients(db) -> None:
     districts = {d.name: d for d in db.query(models.District).all()}
     dhaka = districts.get("Dhaka")
@@ -133,6 +180,8 @@ def main() -> None:
         fc = generate_forecast()
         print("Seeding predictions...")
         seed_predictions(db, fc)
+        print("Seeding wards (community areas)...")
+        seed_wards(db)
         print("Seeding users + alert recipients...")
         seed_users_and_recipients(db)
         print("Seeding model registry...")

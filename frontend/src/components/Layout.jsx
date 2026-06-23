@@ -36,9 +36,12 @@ export default function Layout() {
   const loc = useLocation();
 
   const links = [
-    { to: "/dashboard", label: t("nav_dashboard"), show: true },
-    { to: "/agent", label: t("nav_agent"), show: true, badge: "AI" },
+    // Public / citizen-facing — no sign-in required
     { to: "/citizen", label: t("nav_citizen"), show: true },
+    { to: "/community", label: t("nav_community"), show: true },
+    // Official + admin features — only after signing in
+    { to: "/dashboard", label: t("nav_dashboard"), show: isOfficial },
+    { to: "/agent", label: t("nav_agent"), show: isOfficial, badge: "AI" },
     { to: "/hospital", label: t("nav_hospital"), show: isOfficial },
     { to: "/alerts", label: t("nav_alerts"), show: isAdmin },
     { to: "/admin", label: t("nav_admin"), show: isAdmin },
