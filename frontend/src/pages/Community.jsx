@@ -61,7 +61,8 @@ export default function Community() {
   const district = districts.find((d) => String(d.id) === String(districtId));
 
   return (
-    <div className="mx-auto max-w-3xl px-3 pb-24 pt-4 sm:px-6">
+    <div className="mx-auto max-w-6xl px-3 pb-24 pt-4 sm:px-6">
+      <div className="mx-auto max-w-3xl">
       {/* Header */}
       <div className="flex items-center justify-between gap-2">
         <div>
@@ -124,6 +125,7 @@ export default function Community() {
           </button>
         ))}
       </div>
+      </div>
 
       <div className="mt-4">
         {tab === "areas" && <AreasTab district={district} wards={wards} selected={ward} onSelect={(w) => { setWard(w); }} />}
@@ -154,9 +156,10 @@ export default function Community() {
 function AreasTab({ district, wards, selected, onSelect }) {
   if (!district) return null;
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden rounded-2xl border border-slate-200">
-        <div style={{ height: 280 }}>
+    <div className="grid gap-4 lg:grid-cols-5 lg:items-start">
+      {/* Map */}
+      <div className="overflow-hidden rounded-2xl border border-slate-200 lg:col-span-3">
+        <div className="h-[44vh] min-h-[300px] lg:h-[66vh]">
           <MapContainer center={[district.lat, district.lon]} zoom={11} className="h-full w-full" scrollWheelZoom={false}>
             <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OSM &copy; CARTO" />
             {wards.map((w) => (
@@ -177,25 +180,33 @@ function AreasTab({ district, wards, selected, onSelect }) {
         </p>
       </div>
 
-      <div className="space-y-2">
-        {wards.map((w) => (
-          <button
-            key={w.id}
-            onClick={() => onSelect(w)}
-            className={`flex w-full items-center justify-between rounded-xl border p-3 text-left transition ${
-              selected?.id === w.id ? "border-brand-300 bg-brand-50" : "border-slate-200 bg-white hover:bg-slate-50"
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <span className="h-3 w-3 rounded-full" style={{ background: RISK_HEX[w.risk_level] }} />
-              <div>
-                <p className="text-sm font-semibold text-slate-800">{w.name} · {w.area_name}</p>
-                <p className="text-xs text-slate-500">~{w.est_affected.toLocaleString()} may be affected · {w.breeding_sites} breeding sites</p>
+      {/* Ward list */}
+      <div className="lg:col-span-2">
+        <div className="mb-2 flex items-center justify-between px-0.5">
+          <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+            {wards.length} wards · sorted by risk
+          </p>
+        </div>
+        <div className="scroll-thin space-y-2 lg:max-h-[62vh] lg:overflow-y-auto lg:pr-1">
+          {wards.map((w) => (
+            <button
+              key={w.id}
+              onClick={() => onSelect(w)}
+              className={`flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition ${
+                selected?.id === w.id ? "border-brand-300 bg-brand-50 ring-1 ring-brand-200" : "border-slate-200 bg-white hover:bg-slate-50"
+              }`}
+            >
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="h-3 w-3 shrink-0 rounded-full" style={{ background: RISK_HEX[w.risk_level] }} />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-slate-800">{w.name} · {w.area_name}</p>
+                  <p className="truncate text-xs text-slate-500">~{w.est_affected.toLocaleString()} may be affected · {w.breeding_sites} breeding sites</p>
+                </div>
               </div>
-            </div>
-            <RiskBadge level={w.risk_level} score={w.risk_score} />
-          </button>
-        ))}
+              <RiskBadge level={w.risk_level} score={w.risk_score} />
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -230,7 +241,7 @@ function TasksTab({ ward, profile, requireProfile }) {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
       {items.map((d) => (
         <div key={d.id} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
           {d.image_url && (
@@ -295,7 +306,7 @@ function ChatTab({ ward, profile, requireProfile }) {
   };
 
   return (
-    <div className="flex h-[60vh] flex-col rounded-2xl border border-slate-200 bg-white">
+    <div className="mx-auto flex h-[60vh] max-w-2xl flex-col rounded-2xl border border-slate-200 bg-white lg:h-[68vh]">
       <div className="border-b border-slate-100 px-4 py-2 text-xs font-semibold text-slate-500">
         {ward.name} · {ward.area_name} community
       </div>
@@ -373,52 +384,88 @@ function DispatchTab({ wards, initialWard }) {
     setTimeout(() => setToast(""), 4000);
   };
 
+  const PRIORITY_TONE = {
+    Critical: "text-red-700", High: "text-orange-700", Medium: "text-amber-700", Low: "text-emerald-700",
+  };
+
   return (
-    <div className="space-y-4">
-      {toast && <div className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">{toast}</div>}
-      <form onSubmit={submit} className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
-        <div className="grid grid-cols-2 gap-2">
-          <select className="input" value={wardId} onChange={(e) => setWardId(e.target.value)}>
-            {wards.map((x) => <option key={x.id} value={x.id}>{x.name} · {x.area_name}</option>)}
-          </select>
-          <select className="input" value={priority} onChange={(e) => setPriority(e.target.value)}>
-            {["Critical", "High", "Medium", "Low"].map((p) => <option key={p}>{p}</option>)}
-          </select>
+    <div className="mx-auto max-w-5xl space-y-4">
+      {toast && (
+        <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+          <span>✅</span>{toast}
         </div>
-        <input className="input" placeholder="Task title (e.g. Clear stagnant pond)" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <textarea className="input" rows={2} placeholder="Instructions for the team…" value={message} onChange={(e) => setMessage(e.target.value)} />
-        <input className="input" placeholder="Location label (e.g. behind Ward 30 school)" value={label} onChange={(e) => setLabel(e.target.value)} />
+      )}
 
-        <div>
-          <p className="mb-1 text-xs font-semibold text-slate-600">Tap the map to mark exactly where to go</p>
-          <div className="overflow-hidden rounded-xl border border-slate-200" style={{ height: 220 }}>
-            <MapContainer center={[w.lat, w.lon]} zoom={13} className="h-full w-full">
-              <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OSM &copy; CARTO" />
-              <ClickPicker onPick={(lat, lon) => setPoint({ lat, lon })} />
-              <CircleMarker center={[point.lat, point.lon]} radius={9} pathOptions={{ color: "#fff", weight: 3, fillColor: "#C0392B", fillOpacity: 1 }} />
-            </MapContainer>
+      <form onSubmit={submit} className="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
+        <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
+          {/* Left: task details */}
+          <div className="flex flex-col gap-3">
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Target ward</label>
+              <select className="input" value={wardId} onChange={(e) => setWardId(e.target.value)}>
+                {wards.map((x) => <option key={x.id} value={x.id}>{x.name} · {x.area_name}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Priority</label>
+              <select className={`input font-semibold ${PRIORITY_TONE[priority]}`} value={priority} onChange={(e) => setPriority(e.target.value)}>
+                {["Critical", "High", "Medium", "Low"].map((p) => <option key={p}>{p}</option>)}
+              </select>
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Task title</label>
+              <input className="input" placeholder="e.g. Clear stagnant pond" value={title} onChange={(e) => setTitle(e.target.value)} />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Instructions</label>
+              <textarea className="input" rows={3} placeholder="What the team should do on site…" value={message} onChange={(e) => setMessage(e.target.value)} />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Location label</label>
+              <input className="input" placeholder="e.g. behind Ward 30 school" value={label} onChange={(e) => setLabel(e.target.value)} />
+            </div>
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">Pin: {point.lat.toFixed(4)}, {point.lon.toFixed(4)}</p>
+
+          {/* Right: map + photo */}
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-1 flex-col">
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Tap the map to mark exactly where to go</label>
+              <div className="h-64 flex-1 overflow-hidden rounded-xl border border-slate-200">
+                <MapContainer center={[w.lat, w.lon]} zoom={13} className="h-full w-full">
+                  <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OSM &copy; CARTO" />
+                  <ClickPicker onPick={(lat, lon) => setPoint({ lat, lon })} />
+                  <CircleMarker center={[point.lat, point.lon]} radius={9} pathOptions={{ color: "#fff", weight: 3, fillColor: "#C0392B", fillOpacity: 1 }} />
+                </MapContainer>
+              </div>
+              <p className="mt-1 text-[11px] text-slate-400">📍 Pin: {point.lat.toFixed(4)}, {point.lon.toFixed(4)}</p>
+            </div>
+
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-600">Location photo (optional)</label>
+              <div className="flex items-center gap-3">
+                <label className="cursor-pointer rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-100">
+                  {uploading ? "Uploading…" : imageUrl ? "Change photo" : "Upload photo"}
+                  <input type="file" accept="image/*" className="hidden" onChange={(e) => upload(e.target.files?.[0])} />
+                </label>
+                {imageUrl && <img src={`${API_BASE}${imageUrl}`} alt="preview" className="h-12 w-12 rounded-lg object-cover" />}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label className="block text-xs font-semibold text-slate-600">Location photo (optional)</label>
-          <input type="file" accept="image/*" onChange={(e) => upload(e.target.files?.[0])} className="mt-1 text-sm" />
-          {uploading && <p className="text-xs text-slate-400">Uploading…</p>}
-          {imageUrl && <img src={`${API_BASE}${imageUrl}`} alt="preview" className="mt-2 h-24 rounded-lg object-cover" />}
-        </div>
-
-        <button className="btn-primary w-full py-2.5">🚀 Dispatch to community</button>
+        <button className="btn-primary mt-5 w-full py-2.5 text-sm font-semibold">
+          🚀 Dispatch to {w.name} · {w.area_name}
+        </button>
       </form>
 
       {recent.length > 0 && (
         <div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Recent dispatches</p>
-          <div className="space-y-2">
+          <div className="grid gap-2 sm:grid-cols-2">
             {recent.map((d) => (
               <div key={d.id} className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-3 text-sm">
-                <span className="font-medium text-slate-700">{d.title} <span className="text-slate-400">· {d.ward}</span></span>
-                <span className="text-xs text-slate-500">{d.status}</span>
+                <span className="truncate font-medium text-slate-700">{d.title} <span className="text-slate-400">· {d.ward}</span></span>
+                <span className="shrink-0 text-xs text-slate-500">{d.status}</span>
               </div>
             ))}
           </div>

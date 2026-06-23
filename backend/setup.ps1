@@ -7,6 +7,7 @@ python -m venv .venv
 
 Write-Host "Generating synthetic dataset..." -ForegroundColor Cyan
 .\.venv\Scripts\python.exe data\generate_data.py
+.\.venv\Scripts\python.exe data\generate_hospitals.py
 
 Write-Host "Training ensemble (XGBoost + LightGBM)..." -ForegroundColor Cyan
 .\.venv\Scripts\python.exe -m app.ml.train

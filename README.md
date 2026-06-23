@@ -46,36 +46,56 @@ teamdengue/
 
 ## Quick start
 
-Two processes: the API (port **8000**) and the web app (port **5173**).
+**Prerequisites:** Python 3.12+ and Node.js 18+.
 
-### 1. Backend
+### One-command setup & run
+
+From the repo root:
 
 ```powershell
+# Windows
+.\setup.ps1      # installs everything (backend venv + deps, frontend npm, DB)
+.\run.ps1        # starts API (8000) + web app (5173) together
+```
+
+```bash
+# macOS / Linux
+chmod +x setup.sh run.sh
+./setup.sh
+./run.sh
+```
+
+Then open **http://localhost:5173** (API docs at **http://127.0.0.1:8000/docs**).
+
+> The repo ships trained models + a seeded database, so `setup` only regenerates
+> them if missing — usually a fast install. Optional: add `OPENROUTER_API_KEY` /
+> `GEMINI_API_KEY` to `backend/.env` to enable live LLM responses (the AI agent &
+> assistant fall back to a deterministic engine without them).
+
+AI agents / new collaborators: see **`AGENTS.md`** for the full run guide and
+**`DOCUMENTATION.md`** for the technical report.
+
+<details>
+<summary>Manual steps (without the scripts)</summary>
+
+```powershell
+# Backend
 cd backend
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-
-# One-time pipeline: generate data -> train models -> seed database
 .\.venv\Scripts\python.exe data\generate_data.py
+.\.venv\Scripts\python.exe data\generate_hospitals.py
 .\.venv\Scripts\python.exe -m app.ml.train
 .\.venv\Scripts\python.exe -m app.db.seed
-
-# Run the API (docs at http://127.0.0.1:8000/docs)
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
-```
 
-### 2. Frontend
-
-```powershell
+# Frontend (new terminal)
 cd frontend
 npm install
-npm run dev      # http://localhost:5173
+npm run dev
 ```
-
-Open **http://localhost:5173**.
-
-> macOS/Linux: use `source .venv/bin/activate` and `python` instead of the
-> `.\.venv\Scripts\python.exe` paths.
+macOS/Linux: use `source .venv/bin/activate` and `python` instead of the `.\.venv\Scripts\python.exe` paths.
+</details>
 
 ---
 

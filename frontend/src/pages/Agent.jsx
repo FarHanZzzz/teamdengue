@@ -48,6 +48,7 @@ function ActionCard({ a, rank, onDispatch, isAdmin, busy }) {
   const coverage = a.surge_beds_needed
     ? Math.min(100, Math.round((a.dengue_beds_available / a.surge_beds_needed) * 100))
     : 100;
+  const willEscalate = a.risk_level === "Critical" || a.bed_gap > 0;
   return (
     <div className="card p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -96,6 +97,18 @@ function ActionCard({ a, rank, onDispatch, isAdmin, busy }) {
         ))}
       </ul>
 
+      {/* escalation notice */}
+      {willEscalate && (
+        <div className="mt-3 flex items-start gap-2 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-700">
+          <span>🏛️</span>
+          <span>
+            {a.bed_gap > 0
+              ? <>Bed shortfall of <b>{a.bed_gap.toLocaleString()}</b> — dispatch will escalate to <b>DGHS Central Command</b> requesting bed-surge / inter-district transfer.</>
+              : <>Critical risk — dispatch will escalate to <b>DGHS Central Command</b> for national surge support.</>}
+          </span>
+        </div>
+      )}
+
       {/* hospitals + actions */}
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3">
         <div className="text-xs text-slate-500">
@@ -105,7 +118,7 @@ function ActionCard({ a, rank, onDispatch, isAdmin, busy }) {
         </div>
         {isAdmin && (
           <button onClick={() => onDispatch([a.district_id])} disabled={busy} className="btn-primary px-3 py-1.5 text-xs">
-            ✉ Dispatch to {a.district}
+            {willEscalate ? `🚨 Dispatch & escalate · ${a.district}` : `✉ Dispatch to ${a.district}`}
           </button>
         )}
       </div>
@@ -155,8 +168,15 @@ export default function Agent() {
     setToast("");
     try {
       const r = await endpoints.agentExecute(ids);
-      setToast(`Agent dispatched ${r.alerts_created} advisories — ${r.hospitals_notified} hospitals + DHOs across ${r.districts_actioned} district(s).`);
-      setTimeout(() => setToast(""), 5000);
+      const esc = r.dghs_escalations
+        ? ` Escalated ${r.dghs_escalations} bed-short/critical district(s) to DGHS Central Command${
+            r.escalated_districts?.length ? ` (${r.escalated_districts.slice(0, 3).join(", ")}${r.escalated_districts.length > 3 ? "…" : ""})` : ""
+          }.`
+        : "";
+      setToast(
+        `Agent dispatched ${r.alerts_created} advisories — ${r.hospitals_notified} hospitals + DHOs across ${r.districts_actioned} district(s).${esc}`
+      );
+      setTimeout(() => setToast(""), 7000);
     } finally {
       setBusy(false);
     }

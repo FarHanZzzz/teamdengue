@@ -21,6 +21,9 @@ export default function Citizen() {
   const [symptoms, setSymptoms] = useState([]);
   const [checked, setChecked] = useState(false);
 
+  const [evaluating, setEvaluating] = useState(false);
+  const resultRef = useRef();
+
   const [chat, setChat] = useState([]);
   const [question, setQuestion] = useState("");
   const [asking, setAsking] = useState(false);
@@ -64,10 +67,19 @@ export default function Citizen() {
   };
 
   const evaluate = () => {
-    endpoints.agentCitizen(selected, symptoms, lang).then((b) => {
-      setBrief(b);
-      setChecked(true);
-    });
+    if (!symptoms.length || evaluating) return;
+    setEvaluating(true);
+    endpoints
+      .agentCitizen(selected, symptoms, lang)
+      .then((b) => {
+        setBrief(b);
+        setChecked(true);
+        requestAnimationFrame(() =>
+          resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+        );
+      })
+      .catch(() => {})
+      .finally(() => setEvaluating(false));
   };
 
   const ask = async (e) => {
@@ -123,7 +135,7 @@ export default function Citizen() {
       {brief && !loading && (
         <div className="mt-8 space-y-6">
           {/* Assistant situation card — the centerpiece */}
-          <div className="card overflow-hidden">
+          <div ref={resultRef} className="card overflow-hidden scroll-mt-20">
             <div
               className="flex items-start gap-4 p-5"
               style={{ background: `linear-gradient(90deg, ${RISK_HEX[brief.risk_level]}14, transparent)` }}
@@ -149,7 +161,7 @@ export default function Citizen() {
             </div>
 
             {/* personalised recommendation */}
-            <div className={`m-5 mt-0 rounded-xl border p-4 ${TONE[brief.recommendation.tone]}`}>
+            <div className={`m-5 mt-0 rounded-xl border p-4 transition ${TONE[brief.recommendation.tone]} ${checked ? "ring-2 ring-offset-2 ring-brand-400" : ""}`}>
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide">
                 {checked ? (isBn ? "আপনার লক্ষণ অনুযায়ী পরামর্শ" : "Recommendation for your symptoms") : (isBn ? "সাধারণ পরামর্শ" : "General guidance")}
                 <span className="rounded-full bg-white/60 px-2 py-0.5">{L(brief.recommendation.label)}</span>
@@ -187,12 +199,25 @@ export default function Citizen() {
                   </button>
                 ))}
               </div>
-              <button onClick={evaluate} disabled={!symptoms.length} className="btn-primary mt-4 w-full">
-                {t("symptom_check")}
+              <button
+                onClick={evaluate}
+                disabled={!symptoms.length || evaluating}
+                className="btn-primary mt-4 flex w-full items-center justify-center gap-2 disabled:opacity-60"
+              >
+                {evaluating && (
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+                )}
+                {evaluating ? (isBn ? "পরামর্শ তৈরি হচ্ছে…" : "Getting recommendation…") : t("symptom_check")}
               </button>
-              <p className="mt-2 text-center text-[11px] text-slate-400">
-                {isBn ? "উত্তর উপরে সহকারীর কার্ডে দেখানো হবে।" : "Your answer appears in the assistant card above."}
-              </p>
+              {checked && !evaluating ? (
+                <p className="mt-2 flex items-center justify-center gap-1 text-center text-[11px] font-medium text-brand-600">
+                  ✓ {isBn ? "পরামর্শ উপরে দেখানো হয়েছে ↑" : "Recommendation updated above ↑"}
+                </p>
+              ) : (
+                <p className="mt-2 text-center text-[11px] text-slate-400">
+                  {isBn ? "উত্তর উপরে সহকারীর কার্ডে দেখানো হবে।" : "Your answer appears in the assistant card above."}
+                </p>
+              )}
             </div>
 
             {/* Chat assistant */}

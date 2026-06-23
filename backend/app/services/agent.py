@@ -228,8 +228,44 @@ def generate_action_plan(db: Session) -> dict:
     return plan
 
 
+# Central government / DGHS national emergency desk (escalation target).
+DGHS_RECIPIENT = "DGHS Central Command"
+DGHS_EMAIL = "emergency@dghs.gov.bd"
+
+
+def _needs_escalation(action: dict) -> bool:
+    """Escalate to central government when urgency is high or beds fall short."""
+    return action["risk_level"] == "Critical" or action["bed_gap"] > 0
+
+
+def _bed_status(action: dict) -> str:
+    if action["bed_gap"] > 0:
+        return (f"dengue beds SHORT by {action['bed_gap']:,} "
+                f"(have {action['dengue_beds_available']}, need {action['surge_beds_needed']})")
+    return f"dengue beds sufficient ({action['dengue_beds_available']}/{action['surge_beds_needed']})"
+
+
+def _hospital_message(action: dict) -> str:
+    """Full advisory for hospitals — names the bed shortfall and the next action."""
+    lead = action["recommendations"][0] if action["recommendations"] else "Ready dengue beds and triage."
+    return (f"PrevDengue {action['risk_level'].upper()} — {action['district']}: "
+            f"~{action['est_weekly_cases']:,} cases/wk projected; {_bed_status(action)}. {lead}")
+
+
+def _gov_escalation_message(action: dict) -> str:
+    """Escalation notice to the central government / DGHS authority."""
+    if action["bed_gap"] > 0:
+        ask = (f"REQUEST: bed-surge support / inter-district transfer for {action['bed_gap']:,} beds "
+               f"and {action['fogging_teams']} fogging teams.")
+    else:
+        ask = f"REQUEST: {action['fogging_teams']} fogging teams and standby surge support."
+    return (f"ESCALATION — {action['district']} ({action['division']}) is {action['risk_level'].upper()}. "
+            f"~{action['est_weekly_cases']:,} cases/wk projected; {_bed_status(action)}. {ask}")
+
+
 def execute_plan(db: Session, district_ids: list[int] | None = None) -> dict:
-    """Dispatch the plan's advisories to DHOs + hospitals (PRD 6.3 + hospital link)."""
+    """Dispatch the plan to hospitals + DHOs, and escalate urgent / bed-short
+    districts to the central government (DGHS) authority (PRD 6.3 + hospital link)."""
     plan = _build_plan(db)
     selected = {a["district_id"]: a for a in plan["actions"]}
     if district_ids:
@@ -239,34 +275,55 @@ def execute_plan(db: Session, district_ids: list[int] | None = None) -> dict:
     for h in db.query(Hospital).all():
         hospitals_by_district.setdefault(h.district_id, []).append(h)
 
+    now = datetime.now(timezone.utc)
     alerts_created = 0
     hospitals_notified = 0
+    dghs_escalations = 0
+    escalated_districts: list[str] = []
+
     for did, action in selected.items():
-        body = action["draft_sms"]
-        # Notify every hospital in the district directly.
+        hosp_body = _hospital_message(action)
+        # Notify every hospital in the district directly (with bed-shortfall context).
         for h in hospitals_by_district.get(did, []):
-            status = _simulate_send("email", h.email, body)
+            status = _simulate_send("email", h.email, hosp_body)
             db.add(Alert(
                 district_id=did, alert_type="agent", risk_level=action["risk_level"],
-                channel="email", recipient=h.email, status=status, message=body,
-                delivered_at=datetime.now(timezone.utc),
+                channel="email", recipient=h.email, status=status, message=hosp_body,
+                delivered_at=now,
             ))
             hospitals_notified += 1
             alerts_created += 1
-        # Notify the District Health Officer by SMS.
-        status = _simulate_send("sms", "+8801711000000", body)
+
+        # Notify the District Health Officer by SMS (short form).
+        status = _simulate_send("sms", "+8801711000000", action["draft_sms"])
         db.add(Alert(
             district_id=did, alert_type="agent", risk_level=action["risk_level"],
-            channel="sms", recipient=f"DHO {action['district']}", status=status, message=body,
-            delivered_at=datetime.now(timezone.utc),
+            channel="sms", recipient=f"DHO {action['district']}", status=status,
+            message=action["draft_sms"], delivered_at=now,
         ))
         alerts_created += 1
+
+        # Escalate to the central government / DGHS authority when urgent or short on beds.
+        if _needs_escalation(action):
+            gov_body = _gov_escalation_message(action)
+            status = _simulate_send("email", DGHS_EMAIL, gov_body)
+            db.add(Alert(
+                district_id=did, alert_type="escalation", risk_level=action["risk_level"],
+                channel="email", recipient=DGHS_RECIPIENT, status=status, message=gov_body,
+                delivered_at=now,
+            ))
+            alerts_created += 1
+            dghs_escalations += 1
+            escalated_districts.append(action["district"])
+
     db.commit()
 
     return {
-        "executed_at": datetime.now(timezone.utc).isoformat(),
+        "executed_at": now.isoformat(),
         "districts_actioned": len(selected),
         "hospitals_notified": hospitals_notified,
+        "dghs_escalations": dghs_escalations,
+        "escalated_districts": escalated_districts,
         "alerts_created": alerts_created,
     }
 
