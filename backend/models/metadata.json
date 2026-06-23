@@ -1,0 +1,33 @@
+{
+  "version_tag": "v2026.06.23",
+  "trained_at": "2026-06-23T21:35:07.233935+00:00",
+  "training_data_range": "2000-2021",
+  "feature_set_version": "fs-1.0",
+  "feature_columns": [
+    "mean_temp_t1",
+    "mean_temp_t2",
+    "mean_humidity",
+    "humidity_flag",
+    "total_rainfall",
+    "rainfall_4wk_rolling",
+    "pop_density",
+    "urban_proportion",
+    "agri_land_pct",
+    "cases_t1",
+    "cases_t2",
+    "cases_4wk_avg",
+    "week_of_year",
+    "year"
+  ],
+  "thresholds": {
+    "medium": 0.26,
+    "high": 0.51,
+    "critical": 0.76
+  },
+  "auc_xgb": 0.9695643563448395,
+  "auc_lgbm": 0.9838408400593607,
+  "auc_ensemble": 0.9801161131749503,
+  "mae_ensemble": 0.13262294067255825,
+  "n_train": 73344,
+  "n_test": 6400
+}

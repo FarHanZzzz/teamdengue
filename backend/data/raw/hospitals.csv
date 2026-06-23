@@ -1,0 +1,241 @@
+id,name,type,district_id,district,lat,lon,beds,dengue_beds,phone,email,dist_from_center_km
+1,Bagerhat District Sadar Hospital,District Hospital,1,Bagerhat,22.14219,89.70408,170,42,+8801879356560,contact.bagerhat1@hospital.gov.bd,1.64
+2,Bagerhat Upazila Health Complex 1,Upazila Health Complex,1,Bagerhat,22.16277,89.87173,43,10,+8801887218296,contact.bagerhat2@hospital.gov.bd,16.58
+3,Bagerhat Upazila Health Complex 2,Upazila Health Complex,1,Bagerhat,22.08109,89.76968,48,12,+8801880407442,contact.bagerhat3@hospital.gov.bd,10.26
+4,Bagerhat Upazila Health Complex 3,Upazila Health Complex,1,Bagerhat,22.1682,89.59924,41,10,+8801834530333,contact.bagerhat4@hospital.gov.bd,11.58
+5,Bandarban District Sadar Hospital,District Hospital,2,Bandarban,21.70329,92.22362,137,34,+8801840990063,contact.bandarban5@hospital.gov.bd,3.04
+6,Bandarban Upazila Health Complex 1,Upazila Health Complex,2,Bandarban,21.48914,92.22393,41,10,+8801886651285,contact.bandarban6@hospital.gov.bd,24.75
+7,Bandarban Upazila Health Complex 2,Upazila Health Complex,2,Bandarban,21.7427,92.27095,40,10,+8801822563399,contact.bandarban7@hospital.gov.bd,4.11
+8,Bandarban Upazila Health Complex 3,Upazila Health Complex,2,Bandarban,21.40814,92.1875,49,12,+8801883666302,contact.bandarban8@hospital.gov.bd,34.24
+9,Barguna District Sadar Hospital,District Hospital,3,Barguna,22.16151,90.12169,133,33,+8801832972115,contact.barguna9@hospital.gov.bd,1.53
+10,Barguna Upazila Health Complex 1,Upazila Health Complex,3,Barguna,22.28662,90.03947,36,9,+8801871540112,contact.barguna10@hospital.gov.bd,17.32
+11,Barguna Upazila Health Complex 2,Upazila Health Complex,3,Barguna,22.26544,90.06634,40,10,+8801810580421,contact.barguna11@hospital.gov.bd,13.83
+12,Barguna Upazila Health Complex 3,Upazila Health Complex,3,Barguna,22.17257,90.14402,38,9,+8801833945775,contact.barguna12@hospital.gov.bd,1.67
+13,Barisal District Sadar Hospital,District Hospital,4,Barisal,22.79027,90.44873,250,62,+8801874556994,contact.barisal13@hospital.gov.bd,2.9
+14,Barisal Medical College Hospital,Medical College Hospital,4,Barisal,22.79424,90.49585,923,230,+8801867638365,contact.barisal14@hospital.gov.bd,6.51
+15,Barisal Upazila Health Complex 1,Upazila Health Complex,4,Barisal,22.66957,90.44478,43,10,+8801863390732,contact.barisal15@hospital.gov.bd,16.03
+16,Barisal Upazila Health Complex 2,Upazila Health Complex,4,Barisal,22.79083,90.51779,31,8,+8801845441501,contact.barisal16@hospital.gov.bd,8.77
+17,Barisal Upazila Health Complex 3,Upazila Health Complex,4,Barisal,22.89355,90.60846,45,11,+8801849644550,contact.barisal17@hospital.gov.bd,19.8
+18,Bhola District Sadar Hospital,District Hospital,5,Bhola,22.33603,90.73078,133,33,+8801823147034,contact.bhola18@hospital.gov.bd,2.17
+19,Bhola Upazila Health Complex 1,Upazila Health Complex,5,Bhola,22.46169,90.8769,41,10,+8801845956319,contact.bhola19@hospital.gov.bd,18.53
+20,Bhola Upazila Health Complex 2,Upazila Health Complex,5,Bhola,22.25848,90.8171,43,10,+8801829547352,contact.bhola20@hospital.gov.bd,13.27
+21,Bhola Upazila Health Complex 3,Upazila Health Complex,5,Bhola,22.29826,90.7278,49,12,+8801887861052,contact.bhola21@hospital.gov.bd,6.3
+22,Bogra District Sadar Hospital,District Hospital,6,Bogra,24.79041,89.28143,163,40,+8801890606562,contact.bogra22@hospital.gov.bd,0.72
+23,Bogra Upazila Health Complex 1,Upazila Health Complex,6,Bogra,24.74458,89.24874,48,12,+8801827144249,contact.bogra23@hospital.gov.bd,6.79
+24,Bogra Upazila Health Complex 2,Upazila Health Complex,6,Bogra,24.78145,89.26151,42,10,+8801826625107,contact.bogra24@hospital.gov.bd,2.88
+25,Brahamanbaria District Sadar Hospital,District Hospital,7,Brahamanbaria,23.94461,91.1356,142,35,+8801846972476,contact.brahamanbaria25@hospital.gov.bd,2.19
+26,Brahamanbaria Upazila Health Complex 1,Upazila Health Complex,7,Brahamanbaria,24.00733,91.08502,38,9,+8801887529464,contact.brahamanbaria26@hospital.gov.bd,9.83
+27,Brahamanbaria Upazila Health Complex 2,Upazila Health Complex,7,Brahamanbaria,23.92647,91.19581,49,12,+8801838748356,contact.brahamanbaria27@hospital.gov.bd,7.12
+28,Chandpur District Sadar Hospital,District Hospital,8,Chandpur,23.20187,90.70898,127,31,+8801874485397,contact.chandpur28@hospital.gov.bd,3.43
+29,Chandpur Upazila Health Complex 1,Upazila Health Complex,8,Chandpur,23.25209,90.98292,31,8,+8801870409789,contact.chandpur29@hospital.gov.bd,27.61
+30,Chandpur Upazila Health Complex 2,Upazila Health Complex,8,Chandpur,23.15753,90.7382,48,12,+8801886419872,contact.chandpur30@hospital.gov.bd,8.7
+31,Chandpur Upazila Health Complex 3,Upazila Health Complex,8,Chandpur,23.21123,90.68884,33,8,+8801880918260,contact.chandpur31@hospital.gov.bd,3.45
+32,Chittagong District Sadar Hospital,District Hospital,9,Chittagong,22.41873,91.84047,250,62,+8801876829473,contact.chittagong32@hospital.gov.bd,0.14
+33,Chittagong Medical College Hospital,Medical College Hospital,9,Chittagong,22.42772,91.8142,999,249,+8801885833729,contact.chittagong33@hospital.gov.bd,2.78
+34,Chittagong Upazila Health Complex 1,Upazila Health Complex,9,Chittagong,22.44305,91.85066,38,9,+8801853813720,contact.chittagong34@hospital.gov.bd,2.8
+35,Chittagong Upazila Health Complex 2,Upazila Health Complex,9,Chittagong,22.40569,91.60021,48,12,+8801830303780,contact.chittagong35@hospital.gov.bd,24.69
+36,Chuadanga District Sadar Hospital,District Hospital,10,Chuadanga,23.56208,88.79844,114,28,+8801837953310,contact.chuadanga36@hospital.gov.bd,3.02
+37,Chuadanga Upazila Health Complex 1,Upazila Health Complex,10,Chuadanga,23.44792,88.91811,48,12,+8801822344371,contact.chuadanga37@hospital.gov.bd,14.77
+38,Chuadanga Upazila Health Complex 2,Upazila Health Complex,10,Chuadanga,23.36496,88.97453,37,9,+8801827982354,contact.chuadanga38@hospital.gov.bd,25.58
+39,Comilla District Sadar Hospital,District Hospital,11,Comilla,23.43115,91.03731,250,62,+8801889848219,contact.comilla39@hospital.gov.bd,2.34
+40,Comilla Medical College Hospital,Medical College Hospital,11,Comilla,23.44424,90.99703,579,144,+8801847742949,contact.comilla40@hospital.gov.bd,2.43
+41,Comilla Upazila Health Complex 1,Upazila Health Complex,11,Comilla,23.29245,91.17168,49,12,+8801892246461,contact.comilla41@hospital.gov.bd,22.97
+42,Comilla Upazila Health Complex 2,Upazila Health Complex,11,Comilla,23.56169,91.02243,40,10,+8801856807836,contact.comilla42@hospital.gov.bd,12.89
+43,Comilla Upazila Health Complex 3,Upazila Health Complex,11,Comilla,23.40658,90.9536,48,12,+8801881221326,contact.comilla43@hospital.gov.bd,8.13
+44,Cox's Bazar District Sadar Hospital,District Hospital,12,Cox's Bazar,21.52732,92.04923,147,36,+8801825145633,contact.cox's44@hospital.gov.bd,2.2
+45,Cox's Bazar Upazila Health Complex 1,Upazila Health Complex,12,Cox's Bazar,21.73031,91.98936,49,12,+8801882856151,contact.cox's45@hospital.gov.bd,23.59
+46,Cox's Bazar Upazila Health Complex 2,Upazila Health Complex,12,Cox's Bazar,21.5723,92.23878,36,9,+8801825635215,contact.cox's46@hospital.gov.bd,18.04
+47,Cox's Bazar Upazila Health Complex 3,Upazila Health Complex,12,Cox's Bazar,21.5068,91.99406,37,9,+8801821965214,contact.cox's47@hospital.gov.bd,8.32
+48,Dhaka District Sadar Hospital,District Hospital,13,Dhaka,23.831,90.20105,250,62,+8801875155678,contact.dhaka48@hospital.gov.bd,1.15
+49,Dhaka Medical College Hospital,Medical College Hospital,13,Dhaka,23.81375,90.20804,877,219,+8801872833698,contact.dhaka49@hospital.gov.bd,1.85
+50,Dhaka Upazila Health Complex 1,Upazila Health Complex,13,Dhaka,23.684,90.37259,35,8,+8801891922018,contact.dhaka50@hospital.gov.bd,23.01
+51,Dhaka Upazila Health Complex 2,Upazila Health Complex,13,Dhaka,23.86493,90.20828,42,10,+8801889570973,contact.dhaka51@hospital.gov.bd,3.91
+52,Dinajpur District Sadar Hospital,District Hospital,14,Dinajpur,25.58011,88.84238,161,40,+8801812736046,contact.dinajpur52@hospital.gov.bd,0.25
+53,Dinajpur Upazila Health Complex 1,Upazila Health Complex,14,Dinajpur,25.66404,88.88796,36,9,+8801832319586,contact.dinajpur53@hospital.gov.bd,10.18
+54,Dinajpur Upazila Health Complex 2,Upazila Health Complex,14,Dinajpur,25.41654,88.95599,31,8,+8801813203346,contact.dinajpur54@hospital.gov.bd,21.7
+55,Dinajpur Upazila Health Complex 3,Upazila Health Complex,14,Dinajpur,25.56549,88.90708,34,8,+8801870613063,contact.dinajpur55@hospital.gov.bd,6.79
+56,Faridpur District Sadar Hospital,District Hospital,15,Faridpur,23.44919,89.82439,170,42,+8801831272127,contact.faridpur56@hospital.gov.bd,2.44
+57,Faridpur Upazila Health Complex 1,Upazila Health Complex,15,Faridpur,23.55943,89.86094,41,10,+8801831821497,contact.faridpur57@hospital.gov.bd,12.99
+58,Faridpur Upazila Health Complex 2,Upazila Health Complex,15,Faridpur,23.6815,89.9798,43,10,+8801811145638,contact.faridpur58@hospital.gov.bd,30.96
+59,Faridpur Upazila Health Complex 3,Upazila Health Complex,15,Faridpur,23.25338,89.8997,46,11,+8801823201445,contact.faridpur59@hospital.gov.bd,24.65
+60,Feni District Sadar Hospital,District Hospital,16,Feni,22.94964,91.40084,122,30,+8801837374488,contact.feni60@hospital.gov.bd,3.54
+61,Feni Upazila Health Complex 1,Upazila Health Complex,16,Feni,22.95179,91.40157,33,8,+8801821548368,contact.feni61@hospital.gov.bd,3.31
+62,Feni Upazila Health Complex 2,Upazila Health Complex,16,Feni,22.79967,91.37695,46,11,+8801827336843,contact.feni62@hospital.gov.bd,20.3
+63,Feni Upazila Health Complex 3,Upazila Health Complex,16,Feni,22.78407,91.45763,36,9,+8801864146094,contact.feni63@hospital.gov.bd,22.79
+64,Gaibandha District Sadar Hospital,District Hospital,17,Gaibandha,25.30492,89.43177,147,36,+8801837880545,contact.gaibandha64@hospital.gov.bd,1.86
+65,Gaibandha Upazila Health Complex 1,Upazila Health Complex,17,Gaibandha,25.33824,89.3528,46,11,+8801840124032,contact.gaibandha65@hospital.gov.bd,9.8
+66,Gaibandha Upazila Health Complex 2,Upazila Health Complex,17,Gaibandha,25.35556,89.68978,44,11,+8801824607338,contact.gaibandha66@hospital.gov.bd,24.84
+67,Gaibandha Upazila Health Complex 3,Upazila Health Complex,17,Gaibandha,25.42134,89.43602,46,11,+8801824327496,contact.gaibandha67@hospital.gov.bd,11.9
+68,Gazipur District Sadar Hospital,District Hospital,18,Gazipur,24.07955,90.40376,250,62,+8801885220348,contact.gazipur68@hospital.gov.bd,1.25
+69,Gazipur Medical College Hospital,Medical College Hospital,18,Gazipur,24.05968,90.43964,940,235,+8801856439168,contact.gazipur69@hospital.gov.bd,3.65
+70,Gazipur Upazila Health Complex 1,Upazila Health Complex,18,Gazipur,23.80435,90.32195,49,12,+8801836293551,contact.gazipur70@hospital.gov.bd,30.55
+71,Gazipur Upazila Health Complex 2,Upazila Health Complex,18,Gazipur,23.67823,90.34139,43,10,+8801862173378,contact.gazipur71@hospital.gov.bd,43.86
+72,Gopalganj District Sadar Hospital,District Hospital,19,Gopalganj,23.16387,89.91788,125,31,+8801836913589,contact.gopalganj72@hospital.gov.bd,1.9
+73,Gopalganj Upazila Health Complex 1,Upazila Health Complex,19,Gopalganj,23.14049,89.92013,45,11,+8801821676500,contact.gopalganj73@hospital.gov.bd,0.85
+74,Gopalganj Upazila Health Complex 2,Upazila Health Complex,19,Gopalganj,23.21322,89.9414,42,10,+8801817857693,contact.gopalganj74@hospital.gov.bd,7.83
+75,Gopalganj Upazila Health Complex 3,Upazila Health Complex,19,Gopalganj,23.20824,89.83341,47,11,+8801837869565,contact.gopalganj75@hospital.gov.bd,10.81
+76,Habiganj District Sadar Hospital,District Hospital,20,Habiganj,24.34292,91.40151,114,28,+8801888507988,contact.habiganj76@hospital.gov.bd,2.01
+77,Habiganj Upazila Health Complex 1,Upazila Health Complex,20,Habiganj,24.51828,91.36575,39,9,+8801818580447,contact.habiganj77@hospital.gov.bd,20.28
+78,Habiganj Upazila Health Complex 2,Upazila Health Complex,20,Habiganj,24.38847,91.10775,34,8,+8801883751744,contact.habiganj78@hospital.gov.bd,32.17
+79,Jamalpur District Sadar Hospital,District Hospital,21,Jamalpur,24.91773,89.89268,104,26,+8801877774583,contact.jamalpur79@hospital.gov.bd,1.84
+80,Jamalpur Upazila Health Complex 1,Upazila Health Complex,21,Jamalpur,25.07645,89.93685,40,10,+8801857602799,contact.jamalpur80@hospital.gov.bd,16.36
+81,Jamalpur Upazila Health Complex 2,Upazila Health Complex,21,Jamalpur,25.11736,89.83009,48,12,+8801821505597,contact.jamalpur81@hospital.gov.bd,21.48
+82,Jessore District Sadar Hospital,District Hospital,22,Jessore,23.12972,89.15366,148,37,+8801898179197,contact.jessore82@hospital.gov.bd,2.14
+83,Jessore Upazila Health Complex 1,Upazila Health Complex,22,Jessore,23.12848,89.16577,44,11,+8801879277989,contact.jessore83@hospital.gov.bd,3.03
+84,Jessore Upazila Health Complex 2,Upazila Health Complex,22,Jessore,23.09083,89.14643,38,9,+8801826390206,contact.jessore84@hospital.gov.bd,2.8
+85,Jhalokati District Sadar Hospital,District Hospital,23,Jhalokati,22.56123,90.16224,154,38,+8801843408047,contact.jhalokati85@hospital.gov.bd,1.37
+86,Jhalokati Upazila Health Complex 1,Upazila Health Complex,23,Jhalokati,22.63072,90.17987,39,9,+8801885972818,contact.jhalokati86@hospital.gov.bd,6.81
+87,Jhalokati Upazila Health Complex 2,Upazila Health Complex,23,Jhalokati,22.43683,90.16374,33,8,+8801858128729,contact.jhalokati87@hospital.gov.bd,14.82
+88,Jhenaidah District Sadar Hospital,District Hospital,24,Jhenaidah,23.43997,89.02893,162,40,+8801844933207,contact.jhenaidah88@hospital.gov.bd,0.41
+89,Jhenaidah Upazila Health Complex 1,Upazila Health Complex,24,Jhenaidah,23.41504,88.92476,48,12,+8801898920969,contact.jhenaidah89@hospital.gov.bd,10.92
+90,Jhenaidah Upazila Health Complex 2,Upazila Health Complex,24,Jhenaidah,23.35082,89.09654,37,9,+8801883710783,contact.jhenaidah90@hospital.gov.bd,12.48
+91,Joypurhat District Sadar Hospital,District Hospital,25,Joypurhat,25.06996,89.08248,174,43,+8801825934134,contact.joypurhat91@hospital.gov.bd,1.04
+92,Joypurhat Upazila Health Complex 1,Upazila Health Complex,25,Joypurhat,24.95975,89.13492,33,8,+8801876776272,contact.joypurhat92@hospital.gov.bd,14.38
+93,Joypurhat Upazila Health Complex 2,Upazila Health Complex,25,Joypurhat,25.04801,89.05526,34,8,+8801829332915,contact.joypurhat93@hospital.gov.bd,4.23
+94,Khagrachhari District Sadar Hospital,District Hospital,26,Khagrachhari,23.18312,91.89311,135,33,+8801837323009,contact.khagrachhari94@hospital.gov.bd,2.69
+95,Khagrachhari Upazila Health Complex 1,Upazila Health Complex,26,Khagrachhari,23.32948,92.05683,31,8,+8801850361146,contact.khagrachhari95@hospital.gov.bd,23.61
+96,Khagrachhari Upazila Health Complex 2,Upazila Health Complex,26,Khagrachhari,23.26613,92.10818,33,8,+8801889155770,contact.khagrachhari96@hospital.gov.bd,25.05
+97,Khulna District Sadar Hospital,District Hospital,27,Khulna,22.2542,89.43034,250,62,+8801884210820,contact.khulna97@hospital.gov.bd,1.09
+98,Khulna Medical College Hospital,Medical College Hospital,27,Khulna,22.2928,89.40145,697,174,+8801864535818,contact.khulna98@hospital.gov.bd,4.32
+99,Khulna Upazila Health Complex 1,Upazila Health Complex,27,Khulna,22.20351,89.46478,35,8,+8801886339278,contact.khulna99@hospital.gov.bd,7.63
+100,Khulna Upazila Health Complex 2,Upazila Health Complex,27,Khulna,22.28974,89.46532,40,10,+8801883564544,contact.khulna100@hospital.gov.bd,4.65
+101,Khulna Upazila Health Complex 3,Upazila Health Complex,27,Khulna,22.25919,89.4545,33,8,+8801898456043,contact.khulna101@hospital.gov.bd,2.61
+102,Kishoreganj District Sadar Hospital,District Hospital,28,Kishoreganj,24.42902,90.91104,170,42,+8801825589644,contact.kishoreganj102@hospital.gov.bd,2.56
+103,Kishoreganj Upazila Health Complex 1,Upazila Health Complex,28,Kishoreganj,24.19458,90.76725,34,8,+8801897710324,contact.kishoreganj103@hospital.gov.bd,31.12
+104,Kishoreganj Upazila Health Complex 2,Upazila Health Complex,28,Kishoreganj,24.51293,90.91834,47,11,+8801896498098,contact.kishoreganj104@hospital.gov.bd,9.6
+105,Kishoreganj Upazila Health Complex 3,Upazila Health Complex,28,Kishoreganj,24.38362,90.85488,38,9,+8801854786368,contact.kishoreganj105@hospital.gov.bd,9.62
+106,Kurigram District Sadar Hospital,District Hospital,29,Kurigram,25.93736,89.62475,123,30,+8801815869613,contact.kurigram106@hospital.gov.bd,2.18
+107,Kurigram Upazila Health Complex 1,Upazila Health Complex,29,Kurigram,25.92783,89.50413,42,10,+8801888988799,contact.kurigram107@hospital.gov.bd,14.02
+108,Kurigram Upazila Health Complex 2,Upazila Health Complex,29,Kurigram,25.81094,89.77576,49,12,+8801877730345,contact.kurigram108@hospital.gov.bd,20.35
+109,Kushtia District Sadar Hospital,District Hospital,30,Kushtia,23.89894,89.02847,151,37,+8801879249253,contact.kushtia109@hospital.gov.bd,0.88
+110,Kushtia Upazila Health Complex 1,Upazila Health Complex,30,Kushtia,23.85052,88.87448,44,11,+8801896396490,contact.kushtia110@hospital.gov.bd,16.49
+111,Kushtia Upazila Health Complex 2,Upazila Health Complex,30,Kushtia,23.98654,89.0075,37,9,+8801836563019,contact.kushtia111@hospital.gov.bd,10.85
+112,Kushtia Upazila Health Complex 3,Upazila Health Complex,30,Kushtia,24.01143,88.82247,36,9,+8801844617837,contact.kushtia112@hospital.gov.bd,25.01
+113,Lakshmipur District Sadar Hospital,District Hospital,31,Lakshmipur,22.96509,90.85316,132,33,+8801881837462,contact.lakshmipur113@hospital.gov.bd,1.75
+114,Lakshmipur Upazila Health Complex 1,Upazila Health Complex,31,Lakshmipur,22.83796,90.94666,32,8,+8801894102026,contact.lakshmipur114@hospital.gov.bd,15.88
+115,Lakshmipur Upazila Health Complex 2,Upazila Health Complex,31,Lakshmipur,22.72176,91.01173,36,9,+8801871508494,contact.lakshmipur115@hospital.gov.bd,30.28
+116,Lakshmipur Upazila Health Complex 3,Upazila Health Complex,31,Lakshmipur,23.11085,90.80396,42,10,+8801869579063,contact.lakshmipur116@hospital.gov.bd,18.53
+117,Lalmonirhat District Sadar Hospital,District Hospital,32,Lalmonirhat,26.17874,89.18692,157,39,+8801874787236,contact.lalmonirhat117@hospital.gov.bd,2.39
+118,Lalmonirhat Upazila Health Complex 1,Upazila Health Complex,32,Lalmonirhat,26.20103,88.96255,32,8,+8801851584308,contact.lalmonirhat118@hospital.gov.bd,20.13
+119,Lalmonirhat Upazila Health Complex 2,Upazila Health Complex,32,Lalmonirhat,26.29942,89.0129,44,11,+8801856956529,contact.lalmonirhat119@hospital.gov.bd,19.92
+120,Madaripur District Sadar Hospital,District Hospital,33,Madaripur,23.19798,90.15249,142,35,+8801892206939,contact.madaripur120@hospital.gov.bd,1.09
+121,Madaripur Upazila Health Complex 1,Upazila Health Complex,33,Madaripur,23.14116,90.06011,41,10,+8801866811878,contact.madaripur121@hospital.gov.bd,12.42
+122,Madaripur Upazila Health Complex 2,Upazila Health Complex,33,Madaripur,23.08227,90.00464,31,8,+8801862356029,contact.madaripur122@hospital.gov.bd,20.93
+123,Magura District Sadar Hospital,District Hospital,34,Magura,23.42462,89.39283,165,41,+8801819598112,contact.magura123@hospital.gov.bd,0.99
+124,Magura Upazila Health Complex 1,Upazila Health Complex,34,Magura,23.52698,89.3404,34,8,+8801883658346,contact.magura124@hospital.gov.bd,13.03
+125,Magura Upazila Health Complex 2,Upazila Health Complex,34,Magura,23.33099,89.44896,45,11,+8801868677644,contact.magura125@hospital.gov.bd,11.43
+126,Magura Upazila Health Complex 3,Upazila Health Complex,34,Magura,23.33409,89.4731,39,9,+8801835456474,contact.magura126@hospital.gov.bd,12.37
+127,Manikganj District Sadar Hospital,District Hospital,35,Manikganj,23.87912,89.98415,112,28,+8801851155658,contact.manikganj127@hospital.gov.bd,0.19
+128,Manikganj Upazila Health Complex 1,Upazila Health Complex,35,Manikganj,23.7719,89.97865,48,12,+8801840438777,contact.manikganj128@hospital.gov.bd,12.1
+129,Manikganj Upazila Health Complex 2,Upazila Health Complex,35,Manikganj,23.95883,89.85359,38,9,+8801885778884,contact.manikganj129@hospital.gov.bd,15.8
+130,Manikganj Upazila Health Complex 3,Upazila Health Complex,35,Manikganj,23.87354,90.11605,39,9,+8801873357584,contact.manikganj130@hospital.gov.bd,13.51
+131,Maulvibazar District Sadar Hospital,District Hospital,36,Maulvibazar,24.42379,91.92967,143,35,+8801869441258,contact.maulvibazar131@hospital.gov.bd,1.97
+132,Maulvibazar Upazila Health Complex 1,Upazila Health Complex,36,Maulvibazar,24.35415,91.99398,41,10,+8801847672785,contact.maulvibazar132@hospital.gov.bd,11.96
+133,Maulvibazar Upazila Health Complex 2,Upazila Health Complex,36,Maulvibazar,24.49266,91.80741,46,11,+8801836389553,contact.maulvibazar133@hospital.gov.bd,13.14
+134,Meherpur District Sadar Hospital,District Hospital,37,Meherpur,23.7878,88.68353,133,33,+8801886439424,contact.meherpur134@hospital.gov.bd,0.65
+135,Meherpur Upazila Health Complex 1,Upazila Health Complex,37,Meherpur,23.8118,88.68583,38,9,+8801837544449,contact.meherpur135@hospital.gov.bd,2.22
+136,Meherpur Upazila Health Complex 2,Upazila Health Complex,37,Meherpur,23.66793,88.49297,35,8,+8801829879901,contact.meherpur136@hospital.gov.bd,23.54
+137,Meherpur Upazila Health Complex 3,Upazila Health Complex,37,Meherpur,23.64079,88.55843,42,10,+8801816278218,contact.meherpur137@hospital.gov.bd,20.92
+138,Munshiganj District Sadar Hospital,District Hospital,38,Munshiganj,23.51925,90.43053,174,43,+8801882791118,contact.munshiganj138@hospital.gov.bd,2.66
+139,Munshiganj Upazila Health Complex 1,Upazila Health Complex,38,Munshiganj,23.7006,90.11304,36,9,+8801868591299,contact.munshiganj139@hospital.gov.bd,39.15
+140,Munshiganj Upazila Health Complex 2,Upazila Health Complex,38,Munshiganj,23.40458,90.57623,46,11,+8801856735875,contact.munshiganj140@hospital.gov.bd,19.19
+141,Mymensingh District Sadar Hospital,District Hospital,39,Mymensingh,24.7664,90.48454,250,62,+8801875320331,contact.mymensingh141@hospital.gov.bd,2.62
+142,Mymensingh Medical College Hospital,Medical College Hospital,39,Mymensingh,24.7195,90.41542,901,225,+8801815426563,contact.mymensingh142@hospital.gov.bd,6.43
+143,Mymensingh Upazila Health Complex 1,Upazila Health Complex,39,Mymensingh,24.7419,90.46214,40,10,+8801867901334,contact.mymensingh143@hospital.gov.bd,1.1
+144,Mymensingh Upazila Health Complex 2,Upazila Health Complex,39,Mymensingh,24.61099,90.46428,32,8,+8801832896628,contact.mymensingh144@hospital.gov.bd,14.99
+145,Mymensingh Upazila Health Complex 3,Upazila Health Complex,39,Mymensingh,24.90048,90.69624,34,8,+8801866411477,contact.mymensingh145@hospital.gov.bd,28.42
+146,Naogaon District Sadar Hospital,District Hospital,40,Naogaon,24.85589,88.75569,121,30,+8801896794651,contact.naogaon146@hospital.gov.bd,1.51
+147,Naogaon Upazila Health Complex 1,Upazila Health Complex,40,Naogaon,24.7398,88.83956,36,9,+8801824223238,contact.naogaon147@hospital.gov.bd,15.74
+148,Naogaon Upazila Health Complex 2,Upazila Health Complex,40,Naogaon,24.895,88.74488,35,8,+8801843539269,contact.naogaon148@hospital.gov.bd,4.0
+149,Naogaon Upazila Health Complex 3,Upazila Health Complex,40,Naogaon,24.75124,88.73836,35,8,+8801862658815,contact.naogaon149@hospital.gov.bd,12.97
+150,Narail District Sadar Hospital,District Hospital,41,Narail,23.13099,89.54992,160,40,+8801840165686,contact.narail150@hospital.gov.bd,2.06
+151,Narail Upazila Health Complex 1,Upazila Health Complex,41,Narail,23.09466,89.32103,38,9,+8801853308781,contact.narail151@hospital.gov.bd,25.77
+152,Narail Upazila Health Complex 2,Upazila Health Complex,41,Narail,23.1481,89.5511,45,11,+8801866423484,contact.narail152@hospital.gov.bd,2.8
+153,Narail Upazila Health Complex 3,Upazila Health Complex,41,Narail,23.08515,89.45288,32,8,+8801825297166,contact.narail153@hospital.gov.bd,12.98
+154,Narayanganj District Sadar Hospital,District Hospital,42,Narayanganj,23.74751,90.58338,250,62,+8801824219234,contact.narayanganj154@hospital.gov.bd,2.04
+155,Narayanganj Medical College Hospital,Medical College Hospital,42,Narayanganj,23.77838,90.5756,512,128,+8801850787002,contact.narayanganj155@hospital.gov.bd,1.49
+156,Narayanganj Upazila Health Complex 1,Upazila Health Complex,42,Narayanganj,23.83185,90.3801,34,8,+8801880232429,contact.narayanganj156@hospital.gov.bd,21.62
+157,Narayanganj Upazila Health Complex 2,Upazila Health Complex,42,Narayanganj,23.79473,90.61386,38,9,+8801846704176,contact.narayanganj157@hospital.gov.bd,4.74
+158,Narsingdi District Sadar Hospital,District Hospital,43,Narsingdi,23.98215,90.73783,112,28,+8801812696977,contact.narsingdi158@hospital.gov.bd,1.25
+159,Narsingdi Upazila Health Complex 1,Upazila Health Complex,43,Narsingdi,23.79087,90.79592,48,12,+8801894292448,contact.narsingdi159@hospital.gov.bd,21.25
+160,Narsingdi Upazila Health Complex 2,Upazila Health Complex,43,Narsingdi,24.09375,90.75944,35,8,+8801822202921,contact.narsingdi160@hospital.gov.bd,13.77
+161,Narsingdi Upazila Health Complex 3,Upazila Health Complex,43,Narsingdi,24.0857,90.7137,47,11,+8801886847851,contact.narsingdi161@hospital.gov.bd,12.7
+162,Natore District Sadar Hospital,District Hospital,44,Natore,24.41988,89.10811,151,37,+8801864448420,contact.natore162@hospital.gov.bd,2.2
+163,Natore Upazila Health Complex 1,Upazila Health Complex,44,Natore,24.46192,89.29878,48,12,+8801860790597,contact.natore163@hospital.gov.bd,21.54
+164,Natore Upazila Health Complex 2,Upazila Health Complex,44,Natore,24.417,89.06004,49,12,+8801839455966,contact.natore164@hospital.gov.bd,3.24
+165,Natore Upazila Health Complex 3,Upazila Health Complex,44,Natore,24.34607,89.14006,38,9,+8801874752999,contact.natore165@hospital.gov.bd,10.61
+166,Nawabganj District Sadar Hospital,District Hospital,45,Nawabganj,24.78128,88.34035,163,40,+8801859265844,contact.nawabganj166@hospital.gov.bd,1.29
+167,Nawabganj Upazila Health Complex 1,Upazila Health Complex,45,Nawabganj,24.86297,88.4697,45,11,+8801859935195,contact.nawabganj167@hospital.gov.bd,15.13
+168,Nawabganj Upazila Health Complex 2,Upazila Health Complex,45,Nawabganj,24.75574,88.38465,32,8,+8801874712415,contact.nawabganj168@hospital.gov.bd,6.02
+169,Nawabganj Upazila Health Complex 3,Upazila Health Complex,45,Nawabganj,24.59613,88.41087,37,9,+8801841102949,contact.nawabganj169@hospital.gov.bd,22.98
+170,Netrakona District Sadar Hospital,District Hospital,46,Netrakona,24.88789,90.82947,106,26,+8801822814226,contact.netrakona170@hospital.gov.bd,1.65
+171,Netrakona Upazila Health Complex 1,Upazila Health Complex,46,Netrakona,24.85671,90.95011,48,12,+8801828779814,contact.netrakona171@hospital.gov.bd,11.75
+172,Netrakona Upazila Health Complex 2,Upazila Health Complex,46,Netrakona,24.82478,90.84064,35,8,+8801833383115,contact.netrakona172@hospital.gov.bd,8.02
+173,Netrakona Upazila Health Complex 3,Upazila Health Complex,46,Netrakona,24.56564,90.82749,32,8,+8801882414092,contact.netrakona173@hospital.gov.bd,36.86
+174,Nilphamari District Sadar Hospital,District Hospital,47,Nilphamari,26.01518,88.93559,102,25,+8801876788222,contact.nilphamari174@hospital.gov.bd,1.95
+175,Nilphamari Upazila Health Complex 1,Upazila Health Complex,47,Nilphamari,26.09258,88.86618,41,10,+8801861666012,contact.nilphamari175@hospital.gov.bd,12.33
+176,Nilphamari Upazila Health Complex 2,Upazila Health Complex,47,Nilphamari,26.1069,89.16579,33,8,+8801892363645,contact.nilphamari176@hospital.gov.bd,26.4
+177,Nilphamari Upazila Health Complex 3,Upazila Health Complex,47,Nilphamari,25.99234,88.95472,47,11,+8801827766385,contact.nilphamari177@hospital.gov.bd,2.47
+178,Noakhali District Sadar Hospital,District Hospital,48,Noakhali,22.6557,91.12437,112,28,+8801820123806,contact.noakhali178@hospital.gov.bd,1.64
+179,Noakhali Upazila Health Complex 1,Upazila Health Complex,48,Noakhali,22.76458,91.25259,40,10,+8801830284264,contact.noakhali179@hospital.gov.bd,16.6
+180,Noakhali Upazila Health Complex 2,Upazila Health Complex,48,Noakhali,22.56039,91.16758,44,11,+8801886522356,contact.noakhali180@hospital.gov.bd,12.9
+181,Pabna District Sadar Hospital,District Hospital,49,Pabna,24.12626,89.36994,103,25,+8801835850121,contact.pabna181@hospital.gov.bd,1.1
+182,Pabna Upazila Health Complex 1,Upazila Health Complex,49,Pabna,24.09006,89.50864,38,9,+8801829735806,contact.pabna182@hospital.gov.bd,13.73
+183,Pabna Upazila Health Complex 2,Upazila Health Complex,49,Pabna,24.01636,89.40163,39,9,+8801815421357,contact.pabna183@hospital.gov.bd,11.67
+184,Pabna Upazila Health Complex 3,Upazila Health Complex,49,Pabna,24.19991,89.40828,38,9,+8801875169406,contact.pabna184@hospital.gov.bd,9.55
+185,Panchagarh District Sadar Hospital,District Hospital,50,Panchagarh,26.32671,88.5507,142,35,+8801840159922,contact.panchagarh185@hospital.gov.bd,1.8
+186,Panchagarh Upazila Health Complex 1,Upazila Health Complex,50,Panchagarh,26.45832,88.82882,40,10,+8801894880358,contact.panchagarh186@hospital.gov.bd,31.26
+187,Panchagarh Upazila Health Complex 2,Upazila Health Complex,50,Panchagarh,26.32056,88.58645,40,10,+8801830432103,contact.panchagarh187@hospital.gov.bd,2.75
+188,Panchagarh Upazila Health Complex 3,Upazila Health Complex,50,Panchagarh,26.29804,88.44303,32,8,+8801844338433,contact.panchagarh188@hospital.gov.bd,11.8
+189,Patuakhali District Sadar Hospital,District Hospital,51,Patuakhali,22.0864,90.407,121,30,+8801850463291,contact.patuakhali189@hospital.gov.bd,2.61
+190,Patuakhali Upazila Health Complex 1,Upazila Health Complex,51,Patuakhali,22.09099,90.42253,39,9,+8801813260006,contact.patuakhali190@hospital.gov.bd,3.23
+191,Patuakhali Upazila Health Complex 2,Upazila Health Complex,51,Patuakhali,22.06776,90.45687,39,9,+8801817614563,contact.patuakhali191@hospital.gov.bd,7.62
+192,Patuakhali Upazila Health Complex 3,Upazila Health Complex,51,Patuakhali,22.06454,90.27409,49,12,+8801861652258,contact.patuakhali192@hospital.gov.bd,13.55
+193,Pirojpur District Sadar Hospital,District Hospital,52,Pirojpur,22.54458,90.01262,142,35,+8801849278329,contact.pirojpur193@hospital.gov.bd,0.68
+194,Pirojpur Upazila Health Complex 1,Upazila Health Complex,52,Pirojpur,22.35839,89.89149,45,11,+8801826249341,contact.pirojpur194@hospital.gov.bd,24.84
+195,Pirojpur Upazila Health Complex 2,Upazila Health Complex,52,Pirojpur,22.85375,90.13063,45,11,+8801861221578,contact.pirojpur195@hospital.gov.bd,35.78
+196,Pirojpur Upazila Health Complex 3,Upazila Health Complex,52,Pirojpur,22.63531,90.26284,42,10,+8801838462715,contact.pirojpur196@hospital.gov.bd,27.07
+197,Rajbari District Sadar Hospital,District Hospital,53,Rajbari,23.69922,89.57304,130,32,+8801825603257,contact.rajbari197@hospital.gov.bd,1.32
+198,Rajbari Upazila Health Complex 1,Upazila Health Complex,53,Rajbari,23.92271,89.76812,45,11,+8801870931472,contact.rajbari198@hospital.gov.bd,33.09
+199,Rajbari Upazila Health Complex 2,Upazila Health Complex,53,Rajbari,23.77392,89.3197,38,9,+8801863864238,contact.rajbari199@hospital.gov.bd,26.39
+200,Rajshahi District Sadar Hospital,District Hospital,54,Rajshahi,24.49014,88.68469,250,62,+8801839548487,contact.rajshahi200@hospital.gov.bd,2.63
+201,Rajshahi Medical College Hospital,Medical College Hospital,54,Rajshahi,24.47302,88.70014,591,147,+8801892241181,contact.rajshahi201@hospital.gov.bd,2.67
+202,Rajshahi Upazila Health Complex 1,Upazila Health Complex,54,Rajshahi,24.45427,88.43291,44,11,+8801853529687,contact.rajshahi202@hospital.gov.bd,28.42
+203,Rajshahi Upazila Health Complex 2,Upazila Health Complex,54,Rajshahi,24.52566,88.84342,31,8,+8801848629713,contact.rajshahi203@hospital.gov.bd,13.91
+204,Rajshahi Upazila Health Complex 3,Upazila Health Complex,54,Rajshahi,24.49797,88.49376,41,10,+8801897496428,contact.rajshahi204@hospital.gov.bd,21.89
+205,Rangamati District Sadar Hospital,District Hospital,55,Rangamati,22.82543,92.31262,160,40,+8801879592115,contact.rangamati205@hospital.gov.bd,3.08
+206,Rangamati Upazila Health Complex 1,Upazila Health Complex,55,Rangamati,22.643,92.37833,36,9,+8801824319880,contact.rangamati206@hospital.gov.bd,20.48
+207,Rangamati Upazila Health Complex 2,Upazila Health Complex,55,Rangamati,22.7866,92.33388,47,11,+8801855276071,contact.rangamati207@hospital.gov.bd,4.28
+208,Rangpur District Sadar Hospital,District Hospital,56,Rangpur,25.61097,89.24698,121,30,+8801830420858,contact.rangpur208@hospital.gov.bd,2.78
+209,Rangpur Upazila Health Complex 1,Upazila Health Complex,56,Rangpur,25.77003,89.304,31,8,+8801843130519,contact.rangpur209@hospital.gov.bd,19.57
+210,Rangpur Upazila Health Complex 2,Upazila Health Complex,56,Rangpur,25.78454,89.21256,47,11,+8801878330254,contact.rangpur210@hospital.gov.bd,19.26
+211,Rangpur Upazila Health Complex 3,Upazila Health Complex,56,Rangpur,25.57646,89.23034,35,8,+8801887466012,contact.rangpur211@hospital.gov.bd,4.04
+212,Satkhira District Sadar Hospital,District Hospital,57,Satkhira,22.22572,89.16219,116,29,+8801837502041,contact.satkhira212@hospital.gov.bd,3.81
+213,Satkhira Upazila Health Complex 1,Upazila Health Complex,57,Satkhira,22.25539,89.2482,41,10,+8801822815183,contact.satkhira213@hospital.gov.bd,11.27
+214,Satkhira Upazila Health Complex 2,Upazila Health Complex,57,Satkhira,22.16665,89.27342,48,12,+8801893841251,contact.satkhira214@hospital.gov.bd,11.68
+215,Satkhira Upazila Health Complex 3,Upazila Health Complex,57,Satkhira,22.20614,89.34971,38,9,+8801852276829,contact.satkhira215@hospital.gov.bd,19.27
+216,Shariatpur District Sadar Hospital,District Hospital,58,Shariatpur,23.25082,90.40341,152,38,+8801890837528,contact.shariatpur216@hospital.gov.bd,3.89
+217,Shariatpur Upazila Health Complex 1,Upazila Health Complex,58,Shariatpur,23.16497,90.51231,33,8,+8801839450870,contact.shariatpur217@hospital.gov.bd,10.77
+218,Shariatpur Upazila Health Complex 2,Upazila Health Complex,58,Shariatpur,23.39589,90.24381,34,8,+8801891542499,contact.shariatpur218@hospital.gov.bd,26.81
+219,Sherpur District Sadar Hospital,District Hospital,59,Sherpur,25.07932,90.07439,142,35,+8801865997503,contact.sherpur219@hospital.gov.bd,1.66
+220,Sherpur Upazila Health Complex 1,Upazila Health Complex,59,Sherpur,25.0268,89.90846,39,9,+8801842469983,contact.sherpur220@hospital.gov.bd,18.77
+221,Sherpur Upazila Health Complex 2,Upazila Health Complex,59,Sherpur,25.11582,90.12563,46,11,+8801816992797,contact.sherpur221@hospital.gov.bd,6.23
+222,Sherpur Upazila Health Complex 3,Upazila Health Complex,59,Sherpur,25.04727,89.90419,41,10,+8801836948500,contact.sherpur222@hospital.gov.bd,18.72
+223,Sirajganj District Sadar Hospital,District Hospital,60,Sirajganj,24.4129,89.51524,137,34,+8801893470492,contact.sirajganj223@hospital.gov.bd,3.19
+224,Sirajganj Upazila Health Complex 1,Upazila Health Complex,60,Sirajganj,24.40921,89.58772,43,10,+8801849762960,contact.sirajganj224@hospital.gov.bd,4.58
+225,Sirajganj Upazila Health Complex 2,Upazila Health Complex,60,Sirajganj,24.49838,89.54946,38,9,+8801822139340,contact.sirajganj225@hospital.gov.bd,8.44
+226,Sirajganj Upazila Health Complex 3,Upazila Health Complex,60,Sirajganj,24.47358,89.59195,38,9,+8801860556466,contact.sirajganj226@hospital.gov.bd,7.41
+227,Sunamganj District Sadar Hospital,District Hospital,61,Sunamganj,24.89257,91.37604,117,29,+8801871436763,contact.sunamganj227@hospital.gov.bd,0.53
+228,Sunamganj Upazila Health Complex 1,Upazila Health Complex,61,Sunamganj,25.09255,91.38546,35,8,+8801879267913,contact.sunamganj228@hospital.gov.bd,21.84
+229,Sunamganj Upazila Health Complex 2,Upazila Health Complex,61,Sunamganj,24.69139,91.33918,40,10,+8801824780800,contact.sunamganj229@hospital.gov.bd,23.06
+230,Sunamganj Upazila Health Complex 3,Upazila Health Complex,61,Sunamganj,24.81026,91.38398,36,9,+8801868130668,contact.sunamganj230@hospital.gov.bd,9.65
+231,Sylhet District Sadar Hospital,District Hospital,62,Sylhet,24.91135,91.99165,250,62,+8801886648593,contact.sylhet231@hospital.gov.bd,1.48
+232,Sylhet Medical College Hospital,Medical College Hospital,62,Sylhet,24.8817,91.96303,870,217,+8801830735922,contact.sylhet232@hospital.gov.bd,3.64
+233,Sylhet Upazila Health Complex 1,Upazila Health Complex,62,Sylhet,25.00605,91.8392,48,12,+8801837282125,contact.sylhet233@hospital.gov.bd,17.39
+234,Sylhet Upazila Health Complex 2,Upazila Health Complex,62,Sylhet,24.90838,91.85953,41,10,+8801826992348,contact.sylhet234@hospital.gov.bd,11.85
+235,Tangail District Sadar Hospital,District Hospital,63,Tangail,24.31968,89.98417,144,36,+8801880138114,contact.tangail235@hospital.gov.bd,2.49
+236,Tangail Upazila Health Complex 1,Upazila Health Complex,63,Tangail,24.31907,89.77749,39,9,+8801834732154,contact.tangail236@hospital.gov.bd,21.71
+237,Tangail Upazila Health Complex 2,Upazila Health Complex,63,Tangail,24.43717,90.05707,42,10,+8801893103855,contact.tangail237@hospital.gov.bd,12.61
+238,Thakurgaon District Sadar Hospital,District Hospital,64,Thakurgaon,25.96126,88.34407,128,32,+8801884399944,contact.thakurgaon238@hospital.gov.bd,2.0
+239,Thakurgaon Upazila Health Complex 1,Upazila Health Complex,64,Thakurgaon,26.14374,88.38803,44,11,+8801829934227,contact.thakurgaon239@hospital.gov.bd,19.51
+240,Thakurgaon Upazila Health Complex 2,Upazila Health Complex,64,Thakurgaon,25.91242,88.47419,41,10,+8801862737605,contact.thakurgaon240@hospital.gov.bd,12.95

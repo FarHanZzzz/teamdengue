@@ -2,8 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 font-sans antialiased;
+}
+
+/* Leaflet sizing + theme tweaks */
+.leaflet-container {
+  background: #eef2f7;
+  font-family: inherit;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+/* Permanent labels for critical hotspots on the choropleth */
+.leaflet-tooltip.hotspot-label {
+  background: rgba(15, 23, 42, 0.85);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.leaflet-tooltip.hotspot-label::before {
+  display: none;
+}
+
+/* Thin scrollbar for side lists */
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-slate-100;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-brand-500/40 disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 shadow-sm;
+  }
+  .btn-ghost {
+    @apply btn bg-slate-100 text-slate-700 hover:bg-slate-200;
+  }
+  .btn-outline {
+    @apply btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
 }
