@@ -1,0 +1,9 @@
+{
+  "name": "teamdengue-root",
+  "version": "1.0.0",
+  "scripts": {
+    "start:backend": "cd backend && .\\venv\\Scripts\\uvicorn main:app --reload",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "npx --yes concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  }
+}
